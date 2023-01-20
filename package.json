@@ -1,0 +1,20 @@
+{
+  "name": "my-first-server-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goldenmoon67/first-node-server-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goldenmoon67/first-node-server-project/issues"
+  },
+  "homepage": "https://github.com/goldenmoon67/first-node-server-project#readme"
+}
