@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node main.js"
+    "start": "nodemon main.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/goldenmoon67/first-node-server-project/issues"
   },
-  "homepage": "https://github.com/goldenmoon67/first-node-server-project#readme"
+  "homepage": "https://github.com/goldenmoon67/first-node-server-project#readme",
+  "dependencies": {
+    "nodemon": "^2.0.20" 
+  }
 }
