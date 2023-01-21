@@ -1,6 +1,15 @@
 const http= require("http");
-const routes=require("./routes");
+const express=require("express");
 
+const app=express();
 
-const server = http.createServer(routes);
+app.use((req,res,next)=>{
+    console.log("in the middleware")
+    next();// allows the req to continue to the nexr middleware in line
+});
+
+app.use((req,res,next)=>{
+    console.log("in the another middleware")
+});
+const server = http.createServer(app);
 server.listen(3000);
