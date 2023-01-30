@@ -8,7 +8,7 @@ const router=express.Router();
 
 router.get("/",(req,res,next)=>{
     const products=adminData.products;
-    res.render("shop",{prods:products,appTitle:"Shop App"})//this will find our shoup.pug file, and the paramaters will be useaful for pug file
+    res.render("shop",{prods:products,pageTitle:"Shop App",path:"/"});//this path will be useful for the button action
 });
 
 
