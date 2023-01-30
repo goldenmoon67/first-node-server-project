@@ -4,9 +4,9 @@ const rootDir=require("../utils/path.js");
 
 const router=express.Router();
 
-const products=[];// we will keep datas
+const products=[];
 router.get("/add-product",(req,res,next)=>{
-    res.sendFile(path.join(rootDir,"views","add-product.html"));// {rootDir} better than other way
+    res.sendFile(path.join(rootDir,"views","add-product.html"));
 });
 
 router.post("/add-product",(req,res,next)=>{

@@ -7,8 +7,8 @@ const router=express.Router();
 
 
 router.get("/",(req,res,next)=>{
-    console.log(adminData.products);
-    res.render("shop")//this will find our shoup.pug file
+    const products=adminData.products;
+    res.render("shop",{prods:products,appTitle:"Shop App"})//this will find our shoup.pug file, and the paramaters will be useaful for pug file
 });
 
 
