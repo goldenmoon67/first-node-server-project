@@ -1,16 +1,17 @@
 
 const Product = require("../models/product.js");
-
 exports.getProducts= (req,res,next)=>{
-    const products=Product.fetchAll();
-    res.render('shop', {
-        prods: products,
-        pageTitle: 'Shop',
-        path: '/',
-        hasProducts: products.length > 0,//this things for the handlebars
-        activeShop: true,
-        productCSS: true
-      });
+    const products=Product.fetchAll((products)=>{//we get the products with this callback func
+        res.render('shop', {
+            prods: products,
+            pageTitle: 'Shop',
+            path: '/',
+            hasProducts: products.length > 0,
+            activeShop: true,
+            productCSS: true
+          });
+    });
+   
 }
 
 exports.getAddProducts=(req,res,next)=>{
