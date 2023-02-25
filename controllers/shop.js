@@ -33,6 +33,12 @@ exports.getCart = (req, res, next) => {
   });
 };
 
+exports.postCart = (req, res, next) => {
+ const prodId=req.body.productId;//this is coming from hidden input from add-to-cart.ejs
+ console.log(prodId);
+};
+
+
 exports.getOrders = (req, res, next) => {
   res.render('shop/orders', {
     path: '/orders',
