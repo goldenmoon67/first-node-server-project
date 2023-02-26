@@ -1,12 +1,17 @@
 const Product = require('../models/product');
 
 exports.getAddProduct = (req, res, next) => {
-  res.render('admin/add-product', {
+  res.render('admin/edit-product', {//I will use same page for add and edit prduct
     pageTitle: 'Add Product',
-    path: '/admin/add-product',
-    formsCSS: true,
-    productCSS: true,
-    activeAddProduct: true
+    path: '/admin/add-product'
+  });
+};
+
+exports.getEditProduct = (req, res, next) => {
+  res.render('admin/edit-product'/*need id*/, {//I will use same page for add and edit prduct
+    pageTitle: 'Edit Product',  
+    path: '/admin/edit-product'
+    //I need product model
   });
 };
 
