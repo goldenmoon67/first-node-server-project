@@ -3,7 +3,8 @@ const Product = require('../models/product');
 exports.getAddProduct = (req, res, next) => {
   res.render('admin/edit-product', {//I will use same page for add and edit prduct
     pageTitle: 'Add Product',
-    path: '/admin/add-product'
+    path: '/admin/add-product',
+    editing:false,
   });
 };
 
@@ -12,15 +13,16 @@ exports.getEditProduct = (req, res, next) => {
   if(!editMode){
     return res.redirect('/');
   }
-
-  console.log(editMode);
-  res.render('admin/edit-product', {
-   
-    pageTitle: 'Edit Product',  
-    path: '/admin/edit-product',
-    editing:editMode,
-    //I need product model
+  const prodId=req.params.productId;
+  Product.findById(prodId,(product)=>{
+    res.render('admin/edit-product', {
+      pageTitle: 'Edit Product',  
+      path: '/admin/edit-product',
+      editing:editMode,
+      product:product,
+    });
   });
+  
 };
 
 exports.postAddProduct = (req, res, next) => {
