@@ -8,9 +8,17 @@ exports.getAddProduct = (req, res, next) => {
 };
 
 exports.getEditProduct = (req, res, next) => {
-  res.render('admin/edit-product'/*need id*/, {//I will use same page for add and edit prduct
+  const editMode=req.query.edit;//we will use this to do something like that -> miracaltinay/edit/123456?edit=true
+  if(!editMode){
+    return res.redirect('/');
+  }
+
+  console.log(editMode);
+  res.render('admin/edit-product', {
+   
     pageTitle: 'Edit Product',  
-    path: '/admin/edit-product'
+    path: '/admin/edit-product',
+    editing:editMode,
     //I need product model
   });
 };
