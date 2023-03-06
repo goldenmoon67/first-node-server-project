@@ -63,6 +63,6 @@ module.exports=class Cart{
   }
 
   static getCart(cb) {
-    getProductsFromFile(cb);
+    getCartFromFile(cb);
   }
 }
