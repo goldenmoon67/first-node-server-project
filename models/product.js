@@ -14,10 +14,14 @@ module.exports = class Product {
   }
 
   save() {
-   
+   return db.execute('INSERT INTO products (title,price,description,imageUrl) VALUES (?,?,?,?)',[this.title,this.price,this.description,this.imageUrl]);
   }
 
-  static deleteProduct(id) {
+  static deleteProduct(id) { res.render('shop/product-list', {
+    prods: products,
+    pageTitle: 'All Products',
+    path: '/products'
+  });
   
   }
 
