@@ -1,13 +1,5 @@
-const mysql=require('mysql2');
+const Sequelize=require("sequelize");
+const sequelize=new Sequelize('node-server-db','root','21219467107',{dialect:'mysql',host:'localhost'});
 
-const pool=mysql.createPool( //mysql.createConnect is not good to use.
-// Because we have to close it when we compleated the issue. But pool does it automaticly
-{   
-    host:'localHost',
-    user:'root', 
-    password:'21219467107',
-    database:'node-server-db'
-}
-);
 
-module.exports=pool.promise();//promise better than callback
+module.exports=sequelize;
