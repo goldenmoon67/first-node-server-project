@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const errorController = require('./controllers/error');
+const sequelize=require("./util/database");
 
 const app = express();
 
@@ -19,5 +20,10 @@ app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
 app.use(errorController.get404);
+sequelize.sync().then((result) => {//this is for creating tables on database with using our models
+    console.log(result);
+    app.listen(3000);
 
-app.listen(3000);
+}).catch((err) => {
+    
+});
