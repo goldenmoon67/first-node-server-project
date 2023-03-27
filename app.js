@@ -21,7 +21,7 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 sequelize.sync().then((result) => {//this is for creating tables on database with using our models
-    console.log(result);
+    //console.log(result);
     app.listen(3000);
 
 }).catch((err) => {
