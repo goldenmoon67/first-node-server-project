@@ -17,10 +17,11 @@ exports.getProducts = (req, res, next) => {
 };
 exports.getProduct = (req, res, next) => {
  const productId=req.params.productId;
- Product.findById(productId)
- .then(([product])=>{
+ Product.findByPk(productId)//find by id
+ /* it may be like Product.findAll({where:{id:productId}})*///this returns an object. I wrote this to learn how to use where
+ .then(product=>{
       res.render('shop/product-detail',
-      {product:product[0], 
+      {product:product, 
         pageTitle:product.title,
         path:"/products"
       });
