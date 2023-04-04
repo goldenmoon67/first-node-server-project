@@ -64,14 +64,24 @@ exports.postAddProduct = (req, res, next) => {
 
   }).then((result) => {
     console.log(result);
+   res.redirect("/admin/products")
   }).catch((err) => {
     console.log(err);
   });
 };
 exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
- Product.deleteProduct(prodId);
- res.redirect('/')
+  Product.findByPk(prodId).then((product) => {
+   return product.destroy();
+   
+  }).then((response)=>{
+    console.log(response);
+    res.redirect("/");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+ res.redirect('/admin/products')
 };
 exports.getProducts = (req, res, next) => {
   Product.findAll().then((products) => {
