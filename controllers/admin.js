@@ -55,14 +55,24 @@ exports.postAddProduct = (req, res, next) => {
   const imageUrl = req.body.imageUrl;
   const price = req.body.price;
   const description = req.body.description;
-  Product.create({//add product with sequelize
-  
+  req.user.createProduct({
+  //this function coming with realition things
     title:title,
     price:price,
     imageUrl:imageUrl,
     description:description
 
-  }).then((result) => {
+  })///also we can use it as below
+  /*
+  Product.create({
+  
+    title:title,
+    price:price,
+    imageUrl:imageUrl,
+    description:description,
+    userId:req.user.id
+  })*/
+  .then((result) => {
     console.log(result);
    res.redirect("/admin/products")
   }).catch((err) => {
